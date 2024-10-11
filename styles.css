@@ -38,7 +38,7 @@ nav ul li a {
 }
 
 #login-page{
-    font-family: Arial, sans-serif;
+    font-family: SandolSml, sans-serif;
     background-color: #f4f4f4;
     display: flex;
     align-items: center;
@@ -177,16 +177,16 @@ nav ul li a {
 }
 
 .main-title h1 {
-    font-size: 48px; /* 제목 크기 설정 */
+    font-size: 80px; /* 제목 크기 설정 */
     font-weight: bold; /* 제목을 굵게 표시 */
-    font-family: url(/assets/fonts/DungGeunMo.ttf);
+    font-family: 'pixel', sans-serif;
     margin-bottom: 20px; /* h1과 h3 사이의 여백 설정 */
 }
 
 .main-title h3 {
     font-size: 24px; /* 부제목 크기 설정 */
     font-weight: normal; /* 부제목은 일반 두께 */
-    font-family: "AppleSDGothicNeoM.ttf";
+    font-family: "SandolMid", sans-serif;
     margin: 0; /* 기본 여백 제거 */
 }
 
@@ -195,6 +195,20 @@ nav ul li a {
     margin: 10; /* 기본 여백 제거 */
 }
 
+@font-face {
+    font-family: 'pixel'; /* 원하는 폰트 이름 */
+    src: url('/assets/fonts/DungGeunMo.ttf') format('truetype'); /* 폰트 파일 경로 */
+}
+
+@font-face {
+    font-family: 'SandolMid'; /* 원하는 폰트 이름 */
+    src: url('/assets/fonts/AppleSDGothicNeoM.ttf') format('truetype'); /* 폰트 파일 경로 */
+}
+
+@font-face {
+    font-family: 'SandolSml';
+    src: url(/assets/fonts/AppleSDGothicNeoR.ttf);
+}
 /* 푸터 스타일 */
 footer {
     background-color: #333;
