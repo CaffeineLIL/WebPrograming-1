@@ -144,19 +144,55 @@ nav ul li a {
     background-color: #0056b3;
 }
 
-/* 게임 배너 애니메이션 */
 .game-banner {
+    position: relative;
     background-color: #343a40;
+    background-image: url(assets/img/ClassicGame.png);
+    background-size: 100% 100%;
+    background-position: cover;
+    background-repeat: no-repeat;
+    
     color: white;
-    padding: 20px;
-    text-align: center;
-    animation: bannerAnimation 3s infinite;
+    padding: 300px;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 검은색 투명도 50% */
+    display: flex; /* 플렉스박스 사용 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    z-index: 1;
 }
 
-@keyframes bannerAnimation {
-    0% { background-color: #343a40; }
-    50% { background-color: #007bff; }
-    100% { background-color: #343a40; }
+.main-title {
+    z-index: 2;
+    color: white;
+    text-align: center; /* 텍스트를 중앙 정렬 */
+    font-family: 'Arial', sans-serif; /* 폰트 설정 */
+    margin: 20px 0; /* 위아래 여백 설정 */
+}
+
+.main-title h1 {
+    font-size: 48px; /* 제목 크기 설정 */
+    font-weight: bold; /* 제목을 굵게 표시 */
+    font-family: url(/assets/fonts/DungGeunMo.ttf);
+    margin-bottom: 20px; /* h1과 h3 사이의 여백 설정 */
+}
+
+.main-title h3 {
+    font-size: 24px; /* 부제목 크기 설정 */
+    font-weight: normal; /* 부제목은 일반 두께 */
+    font-family: "AppleSDGothicNeoM.ttf";
+    margin: 0; /* 기본 여백 제거 */
+}
+
+
+.game-banner h1, .game-banner h3 {
+    margin: 10; /* 기본 여백 제거 */
 }
 
 /* 푸터 스타일 */
