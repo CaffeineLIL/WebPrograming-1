@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/7fcc1128-4891-4a8b-9513-3cf10c2b1255)
 # 이승호 - 웹프로그래밍 과제 #1 보고서
 
 ## 0. 계층 설명 및 실행화면
