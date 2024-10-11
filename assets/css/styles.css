@@ -128,6 +128,7 @@ nav ul li a {
     border: 1px solid #ccc;
     padding: 20px;
     width: 200px;
+    
     text-align: center;
 }
 
@@ -144,10 +145,14 @@ nav ul li a {
     background-color: #0056b3;
 }
 
+.game-title{
+    font-family: 'pixel', sans-serif;
+}
+
 .game-banner {
     position: relative;
-    background-color: #343a40;
-    background-image: url(assets/img/ClassicGame.png);
+    background-color: #353b41;
+    background-image: url(/assets/img/ClassicGame.png);
     background-size: 100% 100%;
     background-position: cover;
     background-repeat: no-repeat;

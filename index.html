@@ -1,10 +1,13 @@
 <!DOCTYPE html>
+<!--
+20234031 이승호
+-->
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>고전게임 페이지</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
     <!-- 네비게이션 바 -->
@@ -12,7 +15,7 @@
         <nav>
             <ul>
                 <li><a href="index.html">홈</a></li>
-                <li><a href="#games">게임 선택</a></li>
+                <li><a href="index.html#games">게임 선택</a></li>
                 <li><a href="login.html">로그인</a></li>
             </ul>
         </nav>
@@ -34,19 +37,19 @@
         <h2>게임 선택</h2>
         <div class="game-list">
             <div class="game-item">
-                <h3>지뢰 찾기</h3>
+                <h3> <span class="game-title"> 지뢰 찾기 </span></h3>
                 <p>지뢰를 피해 안전한 블록을 모두 찾으세요!</p>
-                <a href="findmine.html">게임 시작</a>
+                <a class="game-title" href="/templates/games/findmine.html">게임 시작</a>
             </div>
             <div class="game-item">
-                <h3>벽돌 깨기</h3>
+                <h3><span class="game-title">벽돌 깨기</span></h3>
                 <p>벽돌을 모두 부수고 점수를 높이세요!</p>
-                <a href="brickcrash.html">게임 시작</a>
+                <a class="game-title" href="/templates/games/brickcrash.html">게임 시작</a>
             </div>
             <div class="game-item">
-                <h3>갤러그</h3> 
+                <h3><span class="game-title">갤러그</span></h3> 
                 <p>적의 공격을 피하고 모든 적을 무찌르세요!</p>
-                <a href="galaga.html">게임 시작</a>
+                <a class="game-title" href="/templates/games/galaga.html">게임 시작</a>
             </div>
         </div>
     </section>
@@ -54,6 +57,7 @@
     <!-- 푸터 -->
     <footer>
         <p>© 20234031 이승호 - 모든 권리 보유. 이건 제 홈페이지입니다. 제 마음대로 할 수 있는겁니다.</p>
+        <p>@ 20234031 Lee Seungho - All right reserved</p>
     </footer>
 </body>
 </html>

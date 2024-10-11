@@ -1,0 +1,73 @@
+body {
+    background-color: #282c34;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #343a40;
+    padding: 20px;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+h1 {
+    margin: 20px 0;
+    color: #fff;
+}
+
+.game-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.game-screen {
+    width: 640px;
+    height: 480px;
+    background-color: #353b41;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border: 2px solid #fff;
+}
+
+.game-screen::before {
+    content: '게임 실행 칸 (여기에 나중에 JS로 게임이 들어갈 예정)';
+    color: gray;
+    font-size: 1.2em;
+}
+
+.game-info {
+    width: 640px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.game-info label {
+    font-size: 1.2em;
+}
+
+.game-info span {
+    font-weight: bold;
+}
