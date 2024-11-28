@@ -52,7 +52,7 @@ h1 {
 }
 
 .game-screen::before {
-    content: '이 화면에 게임이 실행됩니다. (여기에 나중에 JS로 게임이 들어갈 예정)';
+    content: '이 화면에 게임이 실행됩니다. (여기에 JS로 게임이 들어갈 예정)';
     color: gray;
     font-size: 1.2em;
 }
