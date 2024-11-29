@@ -33,6 +33,10 @@ h1 {
     color: #fff;
 }
 
+#gameCanvas{
+    border: 2px solid rgb(62, 62, 62); /* 검은색 윤곽선 */
+   
+}
 .game-container {
     margin-top: 20px;
     display: flex;
@@ -51,8 +55,9 @@ h1 {
     border: 2px solid #fff;
 }
 
+
 .game-screen::before {
-    content: '이 화면에 게임이 실행됩니다. (여기에 나중에 JS로 게임이 들어갈 예정)';
+    content: '이 화면에 게임이 실행됩니다. (여기에 JS로 게임이 들어갈 예정)';
     color: gray;
     font-size: 1.2em;
 }
