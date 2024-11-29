@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const localStorageKey = `${nickname}_highscore`;
 
     let score = 0;
-    let ball = { x: canvas.width / 2, y: canvas.height - 30, dx: 2, dy: -2, radius: 10 };
+    let ball = { x: canvas.width / 2, y: canvas.height - 30, dx: 0.5, dy: -0.5, radius: 10 };
     let paddle = { x: (canvas.width - 75) / 2, width: 75, height: 10 };
     let bricks = [];
     let rows = 5;
@@ -126,17 +126,17 @@ document.addEventListener("DOMContentLoaded", () => {
             if (ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
                 ball.dy = -ball.dy;
             } else {
-                alert(`게임 오버! 점수: ${score}`);
+                //alert(`게임 오버! 점수: ${score}`);
                 document.location.reload();
             }
         }
 
-        // 패들 이동
-        if (rightPressed && paddle.x < canvas.width - paddle.width) paddle.x += 7;
-        else if (leftPressed && paddle.x > 0) paddle.x -= 7;
+        // 패들 판 이동
+        if (rightPressed && paddle.x < canvas.width - paddle.width) paddle.x += 4;
+        else if (leftPressed && paddle.x > 0) paddle.x -= 4;
 
         requestAnimationFrame(draw);
-    }
+     }
 
     // 게임 시작
     scoreDisplay.textContent = getHighScore();
