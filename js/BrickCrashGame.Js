@@ -20,12 +20,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let brickOffsetLeft = 35;
     let rightPressed = false;
     let leftPressed = false;
+    let isGameRunning = false; // 게임 상태 변수
+    let animationId;
 
     // 초기화된 벽돌 배열
     for (let c = 0; c < cols; c++) {
         bricks[c] = [];
         for (let r = 0; r < rows; r++) {
-            bricks[c][r] = { x: 0, y: 0, status: 1 }; // status = 1 (벽돌 있음)
+            bricks[c][r] = { x: 0, y: 0, status: 1 };
         }
     }
 
@@ -33,13 +35,13 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("keyup", keyUpHandler);
 
     function keyDownHandler(e) {
-        if (e.key === "Right" || e.key === "ArrowRight") rightPressed = true;
-        else if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = true;
+        if (e.key === "d" || e.key === "ArrowRight") rightPressed = true;
+        else if (e.key === "a" || e.key === "ArrowLeft") leftPressed = true;
     }
 
     function keyUpHandler(e) {
-        if (e.key === "Right" || e.key === "ArrowRight") rightPressed = false;
-        else if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = false;
+        if (e.key === "d" || e.key === "ArrowRight") rightPressed = false;
+        else if (e.key === "a" || e.key === "ArrowLeft") leftPressed = false;
     }
 
     function drawBall() {
@@ -93,7 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         score++;
                         scoreDisplay.textContent = score;
 
-                        // 점수 저장
                         localStorage.setItem(localStorageKey, Math.max(score, getHighScore()));
                     }
                 }
@@ -112,7 +113,6 @@ document.addEventListener("DOMContentLoaded", () => {
         drawPaddle();
         collisionDetection();
 
-        // 공 이동
         ball.x += ball.dx;
         ball.y += ball.dy;
 
@@ -126,19 +126,27 @@ document.addEventListener("DOMContentLoaded", () => {
             if (ball.x > paddle.x && ball.x < paddle.x + paddle.width) {
                 ball.dy = -ball.dy;
             } else {
-                //alert(`게임 오버! 점수: ${score}`);
                 document.location.reload();
             }
         }
 
-        // 패들 판 이동
         if (rightPressed && paddle.x < canvas.width - paddle.width) paddle.x += 4;
         else if (leftPressed && paddle.x > 0) paddle.x -= 4;
 
-        requestAnimationFrame(draw);
-     }
+        animationId = requestAnimationFrame(draw);
+    }
 
-    // 게임 시작
+    const startButton = document.getElementById("startButton");
+    startButton.addEventListener("click", () => {
+        if (isGameRunning) {
+            cancelAnimationFrame(animationId); // 애니메이션 중단
+            startButton.textContent = "게임 시작";
+        } else {
+            draw(); // 게임 시작
+            startButton.textContent = "게임 시작";
+        }
+        isGameRunning = !isGameRunning;
+    });
+
     scoreDisplay.textContent = getHighScore();
-    draw();
 });
