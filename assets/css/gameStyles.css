@@ -33,6 +33,10 @@ h1 {
     color: #fff;
 }
 
+#gameCanvas{
+    border: 2px solid rgb(62, 62, 62); /* 검은색 윤곽선 */
+   
+}
 .game-container {
     margin-top: 20px;
     display: flex;
@@ -41,21 +45,81 @@ h1 {
 }
 
 .game-screen {
-    width: 640px;
-    height: 480px;
-    background-color: #353b41;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    border: 2px solid #fff;
+    display: grid;
+    margin: 20px auto;
+    width: 300px;
+    height: 300px;
+    border: 2px solid #000;
+    background-color: #ccc;
+    position: relative;
 }
 
-.game-screen::before {
-    content: '이 화면에 게임이 실행됩니다. (여기에 나중에 JS로 게임이 들어갈 예정)';
+.game-screen {
+    display: grid;
+    grid-template-rows: repeat(10, 1fr); /* 행을 균등하게 분할 */
+    grid-template-columns: repeat(10, 1fr); /* 열을 균등하게 분할 */
+    gap: 2px; /* 셀 간격 */
+    width: 300px; /* 전체 보드 너비 */
+    height: 300px; /* 전체 보드 높이 */
+    border: 2px solid #333;
+    background-color: #ddd;
+}
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* 셀의 너비 */
+    height: 100%; /* 셀의 높이 */
+    border: 1px solid #aaa;
+    background-color: #fff;
+    font-size: 14px; /* 셀 글자 크기 */
+    cursor: pointer;
+}
+.cell.mine {
+    background-color: #f44336; /* 지뢰 색상 */
+}
+.cell.revealed {
+    background-color: #e0e0e0; /* 공개된 셀 색상 */
+}
+.cell.flagged {
+    background-color: #ffeb3b; /* 플래그 색상 */
+}
+
+.galaga-game-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.galaga-game-screen {
+    position: relative;
+    background-color: black;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.galaga-game-info {
+    margin-top: 20px;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+#score {
+    font-size: 20px;
+}
+
+#nickname {
+    font-size: 20px;
+}
+
+
+/* .game-screen::before {
+    content: '이 화면에 게임이 실행됩니다. (여기에 JS로 게임이 들어갈 예정)';
     color: gray;
     font-size: 1.2em;
-}
+} */
 
 .game-info {
     width: 640px;
