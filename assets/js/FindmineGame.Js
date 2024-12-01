@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const nicknameElement = document.getElementById("nickname");
     const scoreElement = document.getElementById("score");
     const highScoreElement = document.getElementById("highScore");
-    const highScoreUserElement = document.getElementById("highScoreUser");
 
     // 닉네임 표시 (localStorage 연동)
     const loggedInUser = localStorage.getItem("loggedInUser");
@@ -17,22 +16,20 @@ document.addEventListener("DOMContentLoaded", () => {
     let score = 0;
     const localStorageKey = `${loggedInUser || 'Guest'}_highscore`;
 
-    // 최고 점수와 유저 표시 함수
+    // 최고 점수 표시 함수
     function displayHighScore() {
-        const { highScore, highScoreUser } = getHighScore();
-        highScoreElement.textContent = `최고 점수: ${highScore}`;
-        highScoreUserElement.textContent = `유저: ${highScoreUser}`;
-    }
-
-    // 최고 점수와 유저 정보 가져오기
-    function getHighScore() {
-        const highScoreData = JSON.parse(localStorage.getItem(localStorageKey));
-        return highScoreData ? highScoreData : { highScore: 0, highScoreUser: "Guest" };
+        const highScore = localStorage.getItem(localStorageKey) || 0;
+        highScoreElement.textContent = highScore; // 최고 점수 표시
+        scoreElement.textContent = score; // 현재 점수 표시
     }
 
     // 게임 초기화
     function initializeGame() {
         gameScreen.innerHTML = ""; // 기존 게임 화면 초기화
+
+        // 점수 초기화
+        score = 0; // 게임이 시작될 때 점수는 0으로 초기화
+        displayHighScore(); // 점수 초기화 후 다시 표시
 
         // 보드 데이터 및 셀 생성
         for (let i = 0; i < rows; i++) {
@@ -102,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // 점수 증가
         score++;
-        scoreElement.textContent = score; // 점수 화면 업데이트
+        displayHighScore();
     }
 
     // 플래그 토글
@@ -165,13 +162,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // 최고 점수 갱신
     function updateHighScore() {
-        const currentHighScore = getHighScore();
-        if (score > currentHighScore.highScore) {
-            const highScoreData = {
-                highScore: score,
-                highScoreUser: loggedInUser || "Guest"
-            };
-            localStorage.setItem(localStorageKey, JSON.stringify(highScoreData)); // 최고 점수와 유저 이름 저장
+        const highScore = localStorage.getItem(localStorageKey) || 0;
+        if (score > highScore) {
+            localStorage.setItem(localStorageKey, score); // 최고 점수 갱신
         }
     }
 
